@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Online json viewer and formatter</title>
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+  <body>
+    <div id="nav-div1">
+      <div id="viewer">Viewer</div>
+      <div id="text">Text</div>
+    </div>
+
+    <!-- Text section -->
+    <div class="text-section">
+      <div id="text-nav">
+        <ul>
+          <li id="paste">Paste</li>
+          <li id="copy">Copy</li>
+          <li id="format">Format</li>
+          <li id="rem-white-space">Remove white space</li>
+          <li id="clear">Clear</li>
+          <li id="load-json">Load JSON data</li>
+        </ul>
+      </div>
+
+      <div id="input-area">
+        <textarea
+          name=""
+          id="text-field"
+          placeholder="Input your JSON code here..."
+        ></textarea>
+      </div>
+    </div>
+
+    <!-- Viewer section -->
+
+    <div class="viewer-section-hide">
+      <div class="sideBarHead">
+        <div id="content">
+          <div class="container">
+            <!-- JSON Viewer Section -->
+            <div class="json-viewer" id="json-viewer">
+              <!-- <h2>JSON Viewer</h2> -->
+            </div>
+
+            <!-- Table View Section -->
+          </div>
+        </div>
+
+        <div id="sidebar">
+          <div class="table-view" id="table-view">
+            <div id="table-header">
+              <h3>Table View</h3>
+            </div>
+            <table id="data-table">
+              <thead>
+                <tr>
+                  <th>Key</th>
+                  <th>Value</th>
+                </tr>
+              </thead>
+              <tbody>
+                <!-- Table rows will be dynamically populated here -->
+              </tbody>
+            </table>
+          </div>
+          <!-- <h2>Resizable Sidebar</h2> -->
+          <div id="resizer"></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="load-data-sec">
+      <div class="hide-popup">
+        <div class="head">
+          <p>JSON formatter</p>
+          <img
+            src="https://cdn-icons-png.flaticon.com/128/1828/1828778.png"
+            alt=""
+            id="cross-icon"
+          />
+        </div>
+        <label for="link-url">
+          Url:
+          <input type="text" name="" id="link-url" />
+        </label>
+        <button id="load-data-btn">Load JSON data</button>
+      </div>
+    </div>
+
+    <div class="err-hide">
+      <div class="err-hide-popup">
+        <div class="err-head">
+          <p>JSON error</p>
+        </div>
+        <div class="middle-sec">
+          <img
+            src="https://cdn-icons-png.flaticon.com/128/3389/3389152.png"
+            alt="icon"
+          />
+          <p>Invalid JSON data</p>
+        </div>
+
+        <button id="err-ok">OK</button>
+      </div>
+    </div>
+
+    <script src="js/app.js"></script>
+  </body>
+</html>
