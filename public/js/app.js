@@ -15,31 +15,58 @@ let viewer = document.querySelector("#viewer");
 let text = document.querySelector("#text");
 let textSec = document.querySelector(".text-section");
 let viewerSec = document.querySelector(".viewer-section-hide");
-
+let loaderSec = document.querySelector(".loader-sec-hide");
 let output1 = document.querySelector("#output1");
+let apiErrPop = document.querySelector(".api-err-popup-hide");
+let errCrossIcon = document.querySelector("#err-cross-icon");
+
 async function fetchApi(url) {
   // console.log(url);
   try {
     let response = await fetch(url);
-    console.log(response);
+    // console.log(response);
     let data = await response.json();
     // console.log(JSON.stringify(data));
     textField.value = JSON.stringify(data);
+    loaderSec.classList.add("loader-sec-hide");
+    loaderSec.classList.remove("loader-sec");
 
-    urlPopup.classList.add("hide-popup");
-    urlPopup.classList.remove("url-popup");
+    // urlPopup.classList.add("hide-popup");
+    // urlPopup.classList.remove("url-popup");
   } catch (error) {
-    console.log(error);
+    // alert("err")
+    loaderSec.classList.add("loader-sec-hide");
+    loaderSec.classList.remove("loader-sec");
+    // console.log(error);
+    apiErrPop.classList.add("api-err-popup");
+    apiErrPop.classList.remove("api-err-popup-hide");
   }
 }
+errCrossIcon.addEventListener("click", () => {
+  apiErrPop.classList.add("api-err-popup-hide");
+  apiErrPop.classList.remove("api-err-popup");
+});
 
 loadDataBtn.addEventListener("click", () => {
   // console.log(linkUrl.value);
+
   let url = linkUrl.value;
-  fetchApi(url);
+  if (url === "") {
+    alert("Enter URL");
+  } else {
+    fetchApi(url);
+    urlPopup.classList.add("hide-popup");
+    urlPopup.classList.remove("url-popup");
+
+    loaderSec.classList.add("loader-sec");
+    loaderSec.classList.remove("loader-sec-hide");
+  }
 });
 
 loadJson.addEventListener("click", () => {
+  loaderSec.classList.add("loader-sec-hide");
+  loaderSec.classList.remove("loader-sec");
+
   urlPopup.classList.add("url-popup");
   urlPopup.classList.remove("hide-popup");
 });
