@@ -67,8 +67,14 @@ loadJson.addEventListener("click", () => {
   loaderSec.classList.add("loader-sec-hide");
   loaderSec.classList.remove("loader-sec");
 
+  errPopup.classList.add("err-hide");
+  errPopup.classList.remove("invalid-err-sec");
+
   urlPopup.classList.add("url-popup");
   urlPopup.classList.remove("hide-popup");
+
+  apiErrPop.classList.add("api-err-popup-hide");
+  apiErrPop.classList.remove("api-err-popup");
 });
 crossIcon.addEventListener("click", () => {
   urlPopup.classList.add("hide-popup");
@@ -108,6 +114,10 @@ remWhiteSpace.addEventListener("click", () => {
 });
 
 format.addEventListener("click", () => {
+  // urlPopup.classList.add("hide-popup");
+  // urlPopup.classList.remove("url-popup");
+  apiErrPop.classList.add("api-err-popup-hide");
+  apiErrPop.classList.remove("api-err-popup");
   try {
     if (textField.value !== "") {
       let fromatted = JSON.stringify(JSON.parse(textField.value), null, 2);
@@ -115,7 +125,10 @@ format.addEventListener("click", () => {
       textField.value = fromatted;
     }
   } catch (err) {
-    console.log("Invalid JSON data");
+    urlPopup.classList.add("hide-popup");
+    urlPopup.classList.remove("url-popup");
+    // console.log("Invalid JSON data");
+
     errPopup.classList.add("invalid-err-sec");
     errPopup.classList.remove("err-hide");
   }
@@ -127,6 +140,11 @@ errOkBtn.addEventListener("click", () => {
 });
 
 viewer.addEventListener("click", () => {
+  urlPopup.classList.add("hide-popup");
+  urlPopup.classList.remove("url-popup");
+
+  apiErrPop.classList.add("api-err-popup-hide");
+  apiErrPop.classList.remove("api-err-popup");
   function checkvalidJson() {
     try {
       JSON.parse(textField.value);
@@ -148,7 +166,8 @@ viewer.addEventListener("click", () => {
   }
 
   // Sample JSON data (Replace with your JSON)
-  const jsonData = JSON.parse(textField.value);
+
+  const jsonData = [JSON.parse(textField.value)];
 
   // console.log(jsonData);
 

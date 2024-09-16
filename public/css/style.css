@@ -23,13 +23,16 @@
   margin: 2px;
   cursor: pointer;
   border-bottom: none;
-  top: 0px;
-  z-index: 20;
+  /* top: 0px; */
+  /* z-index: 20; */
+  /* opacity: 0.5; */
 }
 
 #text-nav {
   position: fixed;
   z-index: 2;
+  /* opacity: .5; */
+  /* background-color: white; */
 }
 #text-nav ul {
   position: absolute;
@@ -193,6 +196,9 @@
 }
 .err-hide {
   display: none;
+}
+.text-section {
+  /* opacity: 0.5; */
 }
 .text-section-hide {
   display: none;
