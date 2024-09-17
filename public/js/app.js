@@ -168,7 +168,7 @@ viewer.addEventListener("click", () => {
   // Sample JSON data (Replace with your JSON)
 
   const jsonData = [JSON.parse(textField.value)];
-
+  // container.innerHTML = "";
   // console.log(jsonData);
 
   // Function to create a collapsible element
@@ -206,11 +206,13 @@ viewer.addEventListener("click", () => {
   // Function to display the JSON data
   function displayJSON(json) {
     const container = document.getElementById("json-viewer");
+
     const ul = document.createElement("ul");
     json.forEach((item, index) => {
       ul.appendChild(createCollapsibleElement(index, item));
     });
     container.appendChild(ul);
+    // container.appendChild();
   }
 
   // Function to display data in the table
